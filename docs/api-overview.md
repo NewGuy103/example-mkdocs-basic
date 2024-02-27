@@ -45,22 +45,22 @@ Send a file to the server.
 **Error Codes and Meaning:**
 
 - **MISSING_FILES:** No files were provided in the request for upload.
-    * The server did not receive any files, please check if the file data is being properly passed.
+    - The server did not receive any files, please check if the file data is being properly passed.
 
 - **NO_REMOTE_PATH:** A remote path was not specified for the file.
-  - **Meaning:** The remote path was not passed when uploading. The server gets the parameter name as the remote path of the file: `/remote-path=@local-file.txt`.
+    - The remote path was not passed when uploading. The server gets the parameter name as the remote path of the file: `/remote-path=@local-file.txt`.
 
 - **INVALID_CONTENT:** The parameter name is not a proper data type.
-  - **Meaning:** The server does not accept any parameter name type other than binary or string.
+    -  The server does not accept any parameter name type other than binary or string.
 
 - **EMPTY_STREAM:** An empty file stream was passed to the server.
-  - **Meaning:** The server attempted to read from an empty file stream, so it rejects the file.
+    - The server attempted to read from an empty file stream, so it rejects the file.
 
 - **NO_DIR_EXISTS:** The directory path does not exist.
-  - **Meaning:** Within the parameter name, you can put the directory name in the syntax of a Unix path. If the directory path does not exist, then it will not continue writing: `/no-such-dir/remote-path`.
+    - Within the parameter name, you can put the directory name in the syntax of a Unix path. If the directory path does not exist, then it will not continue writing: `/no-such-dir/remote-path`.
 
 - **FILE_EXISTS:** The file already exists on the server.
-  - **Meaning:** The server has detected a file with the same name exists on the server, so it will not write to prevent data being overwritten. The `/modify` endpoint writes to existing files on the server.
+    - The server has detected a file with the same name exists on the server, so it will not write to prevent data being overwritten. The `/modify` endpoint writes to existing files on the server.
 
 ### `/modify`
 
