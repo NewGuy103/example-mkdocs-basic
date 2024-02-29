@@ -1,4 +1,4 @@
-# API Overview
+# Server API Overview
 
 ---
 
@@ -36,7 +36,7 @@ Failing to authenticate or providing invalid credentials will result in these re
 - **INVALID_CREDENTIALS:**
   Your username or password is incorrect.
 
-## Endpoints
+## File Endpoints
 
 ### `/upload`
 
@@ -44,9 +44,11 @@ Failing to authenticate or providing invalid credentials will result in these re
 
 Send a file to the server.
 
+API key permission required: `create`
+
 **Parameters:**
 
-- Form data including a file, and the field name. (`remote_name=@local_filename`)
+- Form data including a file, and the field name. (`/remote_name=@local_filename`)
 
 **Error Codes and Meaning:**
 
@@ -73,6 +75,8 @@ Send a file to the server.
 ---
 
 Modify an existing file on the server.
+
+API key permission required: `update`
 
 **Parameters:**
 
@@ -101,6 +105,8 @@ Modify an existing file on the server.
 
 Mark a file removed in the server, or delete it permanently. Marking it as deleted makes it so that referencing the deleted file
 on any other endpoint using the file path will only reference the non-deleted file.
+
+API key permission required: `delete`
 
 **Parameters:**
 
@@ -135,6 +141,8 @@ on any other endpoint using the file path will only reference the non-deleted fi
 ---
 
 Restore a file that was marked deleted.
+
+API key permission required: `update`
 
 **Parameters:**
 
@@ -178,6 +186,8 @@ List the deleted file versions, or list all deleted file versions.
 
 Returns a JSON object containing either a list or dictionary on success.
 
+API key permission required: `read`
+
 **Parameters:**
 
 - `file-path`: The file path of the deleted files. Or `:all:` to list all.
@@ -194,12 +204,6 @@ Returns a JSON object containing either a list or dictionary on success.
 - **NO_MATCHING_FILES:** No files have been deleted with that path.
     - This means that no matching files were found that were deleted.
 
-- **MISSING_PARAMETER:** The `restore-which` parameter is missing.
-    - Check if the JSON key is spelled `restore-which` and not `restore_which`.
-
-- **INVALID_PARAMETER:** The `restore-which` parameter is not an integer.
-    - Check if the JSON value is an integer.
-
 - **INVALID_CONTENT:** The `file-path` parameter is not a string.
     - Check if the JSON value is a string.
 
@@ -209,13 +213,15 @@ Returns a JSON object containing either a list or dictionary on success.
 
 Irreversibly delete a file marked as deleted from the database.
 
+API key permission required: `delete`
+
 **Parameters:**
 
 - `file-path`: The file path of the deleted files.
 - `delete-which`: An integer indicating the version of the file to restore. This uses `latest -> oldest` setup
     where `0` is the latest deleted file, and it counts up from that. 
     
-    Optionally, you can also set this to `all` to delete all matching files that were 
+    Optionally, you can also set this to `:all:` to delete all matching files that were 
     marked as deleted. See `/list-deleted` for information.
 
 **Error Codes and Meaning:**
@@ -230,17 +236,17 @@ Irreversibly delete a file marked as deleted from the database.
 - **NO_MATCHING_FILES:** No files have been deleted with that path.
     - This means that no matching files were found that were deleted.
 
-- **MISSING_PARAMETER:** The `restore-which` parameter is missing.
-    - Check if the JSON key is spelled `restore-which` and not `restore_which`.
+- **MISSING_PARAMETER:** The `delete-which` parameter is missing.
+    - Check if the JSON key is spelled `delete-which` and not `delete_which`.
 
-- **INVALID_PARAMETER:** The `restore-which` parameter is not an integer.
+- **INVALID_PARAMETER:** The `delete-which` parameter is not an integer.
     - Check if the JSON value is an integer.
 
 - **INVALID_CONTENT:** The `file-path` parameter is not a string.
     - Check if the JSON value is a string.
 
 - **OUT_OF_BOUNDS:** Attempted to access a file out of bounds.
-    - This means you tried to restore a file version that wasn't listed. (e.g. deleting one file
+    - This means you tried to delete a file version that wasn't listed. (e.g. deleting one file
     but trying to delete the second deleted version, which does not exist)
   
 ### `/read`
@@ -250,6 +256,8 @@ Irreversibly delete a file marked as deleted from the database.
 Read a file from the server.
 
 Returns the file content in binary when successful.
+
+API key permission required: `read`
 
 **Parameters:**
 
@@ -270,6 +278,10 @@ Returns the file content in binary when successful.
     - The server could not find a file with the same name exists on the server, so it will not write. The `/upload` endpoint writes to new files to the server.
 
 
+## Directory Endpoints
+
+---
+
 ### `/create-dir`
 
 ---
@@ -277,6 +289,8 @@ Returns the file content in binary when successful.
 Create a directory to put files into. This allows you to set the remote path like this: `/dir/somefile`
 
 *This directory does not interact with the underlying file system, but an emulated one within the database.*
+
+API key permission required: `create`
 
 **Parameters:**
 
@@ -306,8 +320,10 @@ Create a directory to put files into. This allows you to set the remote path lik
 
 Delete a directory and all it's files. 
 
-*Currently in version 1.1.0, this permanently deletes the directory and files, and not marks them as deleted.* 
+*Currently in version 1.1.0, this permanently deletes the directory, and does not mark them as deleted.* 
 *Also applies to deleted files within the directory.*
+
+API key permission required: `delete`
 
 **Parameters:**
 
@@ -339,6 +355,8 @@ List all the files inside a directory.
 
 *Currently in version 1.1.0, this does not list subfolders.*
 
+API key permission required: `read`
+
 **Parameters:**
 
 - `dir-path`: Directory path to list.
@@ -357,11 +375,17 @@ List all the files inside a directory.
 - **INVALID_DIR_PATH:** The directory path is malformed or invalid.
     - The directory path could have characters before the first forward slash (like `chars/dir1`) and is treated as malformed.
 
+## API Key Endpoints
+
+---
+
 ### `/api/create-key`
 
 ---
 
 Create an API key with the specified permissions.
+
+API key permission required: `create`
 
 **Parameters:**
 
@@ -397,6 +421,8 @@ Create an API key with the specified permissions.
 
 Delete an API key and render it unusable.
 
+API key permission required: `delete`
+
 **Parameters:**
 
 - `key-name`: The name of the API key.
@@ -417,6 +443,8 @@ Delete an API key and render it unusable.
 ---
 
 List API key names. **This will not list the raw API keys.**
+
+API key permission required: `read`
 
 **Error Codes and Meaning:**
 

@@ -19,4 +19,6 @@ b"..."
 pip install newguy103-syncserver
 ```
 
-## 
+## Modules
+
+- [Client Module](client-interface)
