@@ -22,3 +22,5 @@ pip install newguy103-syncserver
 ## Modules
 
 - [Client Module](client-interface)
+- [Server Database](server-db)
+- [Server API](api-overview)

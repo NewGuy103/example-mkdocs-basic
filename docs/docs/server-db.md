@@ -12,7 +12,7 @@ There is also a command line interface to interact with the configurations of th
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L1652)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L1652)
 
 This is where you can edit the configuration of the database, or recover it with the recovery key.
 
@@ -41,7 +41,7 @@ This is where you can edit the configuration of the database, or recover it with
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L54)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L54)
 
 A class representing a file database with user authentication, file storage, and encryption capabilities.
 
@@ -76,7 +76,7 @@ file_db = FileDatabase(db_path="./syncServer.db", db_password=None)
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L275)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L275)
 
 **Parameters:**
 
@@ -90,7 +90,7 @@ and will cause the database to fail decryption on some data if it was encrypted.
 
 ### `save_conf`
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L338)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L338)
 
 **Parameters:**
 
@@ -105,7 +105,7 @@ This function simply saves the updated configuration secrets/vars, and is mainly
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L365)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L365)
 
 **Parameters:**
 
@@ -124,7 +124,7 @@ This verifies the hash of the user with their password.
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L408)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L408)
 
 **Parameters:**
 
@@ -147,7 +147,7 @@ This function will create a new user account with the provided username and toke
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L458)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L458)
 
 **Parameters:**
 
@@ -164,7 +164,7 @@ This will permanently delete the user and all their existing data (files, API ke
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L494)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L494)
 
 **Parameters:**
 
@@ -188,7 +188,7 @@ This checks the provided file path and sees if the underlying directory exists. 
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L523)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L523)
 
 **Parameters:**
 
@@ -216,7 +216,7 @@ This adds a file into the database by reading the file stream in chunks. If encr
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L621)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L621)
 
 **Parameters:**
 
@@ -244,7 +244,7 @@ This modifies an existing file in the database by reading the file stream in chu
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L760)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L760)
 
 **Parameters:**
 
@@ -273,7 +273,7 @@ Or this will remove a file permanently by removing it from the database entirely
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L856)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L856)
 
 **Parameters:**
 
@@ -303,7 +303,7 @@ This ensures that the database can read the file and decrypt it properly.
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L987)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L987)
 
 Interface class allowing `FileDatabase` to access directory methods.
 
@@ -318,7 +318,7 @@ dirs.make_dir("username", "/dir-path")
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L1003)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L1003)
 
 **Parameters:**
 
@@ -349,7 +349,7 @@ The paths are similar to a Unix path: (`/dir/file.txt`)
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L1051)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L1051)
 
 **Parameters:**
 
@@ -377,7 +377,7 @@ This will remove a directory and all the files within it. Attempting to remove t
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L1096)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L1096)
 
 **Parameters:**
 
@@ -403,7 +403,7 @@ This will list a directory and show all the files within it.
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L1143)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L1143)
 
 Interface class allowing `FileDatabase` to access deleted files.
 
@@ -418,7 +418,7 @@ deleted_files.restore_file("username", "/file-path", restore_which=0)
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L1159)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L1159)
 
 **Parameters:**
 
@@ -447,7 +447,7 @@ the deleted timestamps as the value for that deleted file path.
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L1247)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L1247)
 
 **Parameters:**
 
@@ -482,7 +482,7 @@ The order of deleted files is latest -> oldest, and can be retrieved with `Delet
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L1334    )
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L1334    )
 
 **Parameters:**
 
@@ -518,7 +518,7 @@ The order of deleted files is latest -> oldest, and can be retrieved with `Delet
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L1421)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L1421)
 
 Interface class allowing `FileDatabase` to access API keys. The API keys are hashed before
 being stored in the database. 
@@ -536,7 +536,7 @@ api_keys.create_key("username", ['create'], 'key-name', '2024-01-01 0:00:00')
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L1452)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L1452)
 
 **Parameters:**
 
@@ -558,7 +558,7 @@ matching user ID. A warning will be logged and `INVALID_APIKEY` will be returned
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L1487)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L1487)
 
 **Parameters:**
 
@@ -584,7 +584,7 @@ This will check the API key and check if it has the provided permission.
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L1518)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L1518)
 
 **Parameters:**
 
@@ -615,7 +615,7 @@ key before storing. This will ensure that the API key is viewable only once.
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L1590)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L1590)
 
 **Parameters:**
 
@@ -637,7 +637,7 @@ This will delete the API key with the name provided.
 
 ---
 
-[[source]](https://github.com/NewGuy103/syncServer/blob/6ced13ba1958b19d3bc0f69c9a1a2f96ff24faae/server/_db.py#L1627)
+[[source]](https://github.com/NewGuy103/syncServer/blob/accc19e29af8e712ebcf52405c9ea4545dcb355d/server/_db.py#L1627)
 
 **Parameters:**
 
@@ -655,3 +655,5 @@ This will delete the API key with the name provided.
 
 This will **not** list the raw API keys, but only the key names. The server does not have access to the raw
 API key after it is created, only the hashed version of it.
+
+---

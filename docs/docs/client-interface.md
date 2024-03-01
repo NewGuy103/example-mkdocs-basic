@@ -458,3 +458,5 @@ This will remove the API key from the server and make it invalid.
 - `dict` - If the API key listing fails.
 
 This will list the available API key names, but will not return the raw API keys.
+
+---
